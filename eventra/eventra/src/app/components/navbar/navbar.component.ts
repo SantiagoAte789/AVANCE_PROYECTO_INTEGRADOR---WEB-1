@@ -1,11 +1,14 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-navbar', standalone: true, imports: [RouterLink, RouterLinkActive],
   templateUrl: './navbar.component.html', styleUrl: './navbar.component.scss',
 })
 export class NavbarComponent {
+  constructor(public tema: ThemeService) {}
+
   grupos = [
     { nombre: 'Cliente', enlaces: [
       { ruta: '/cliente/eventos', texto: 'Eventos' }, { ruta: '/cliente/mis-reservas', texto: 'Mis reservas' } ] },
