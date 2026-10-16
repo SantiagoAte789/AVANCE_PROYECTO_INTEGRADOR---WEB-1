@@ -4,7 +4,8 @@
   <div class="row g-4">
     <div class="col-12 col-md-7">
       <div class="ev-card">
-        <h2 class="h5">{{ evento.icono }} {{ evento.nombre }}</h2>
+        <img class="evento-img" [src]="evento.imagen" [alt]="evento.nombre">
+        <h2 class="h5">{{ evento.nombre }}</h2>
         <p class="text-secondary">{{ evento.descripcion }}</p>
         <p class="mb-1">📅 {{ evento.fecha }}</p>
         <p class="mb-0">📍 {{ evento.lugar }}</p>

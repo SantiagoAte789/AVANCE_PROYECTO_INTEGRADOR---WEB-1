@@ -7,7 +7,7 @@
     <thead><tr><th></th><th>Evento</th><th>Categoría</th><th>Fecha</th><th>Lugar</th><th>Precio</th><th>Cupos</th></tr></thead>
     <tbody>
       @for (e of eventos; track e.id) {
-        <tr><td class="fs-4">{{ e.icono }}</td><td>{{ e.nombre }}</td><td>{{ e.categoria }}</td><td>{{ e.fecha }}</td>
+        <tr><td><img class="evento-thumb" [src]="e.imagen" [alt]="e.nombre"></td><td>{{ e.nombre }}</td><td>{{ e.categoria }}</td><td>{{ e.fecha }}</td>
           <td>{{ e.lugar }}</td><td>{{ e.precio | currency:'COP':'symbol-narrow':'1.0-0' }}</td><td>{{ e.cupos }}</td></tr>
       }
     </tbody>

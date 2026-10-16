@@ -4,7 +4,7 @@
   @for (e of eventos; track e.id) {
     <div class="col-12 col-md-6 col-lg-4">
       <article class="ev-card h-100 evento">
-        <div class="evento-icono">{{ e.icono }}</div>
+        <img class="evento-img" [src]="e.imagen" [alt]="e.nombre">
         <span class="badge text-bg-light">{{ e.categoria }}</span>
         <h2 class="h5 mt-2">{{ e.nombre }}</h2>
         <p class="small text-secondary">{{ e.descripcion }}</p>

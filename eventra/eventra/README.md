@@ -1,5 +1,10 @@
 # Eventra
 
+INTEGRANTES: 
+@Novvulent      = Samuel Alzate Correa - Codigo: (23252022)
+@SantiagoAte789 = Santiago Atehortua Jaramillo - Codigo: (230251013)
+@                 Nicolas Restrepo Sánchez -  Codigo: (230251043)
+
 Plataforma web para publicar eventos y gestionar reservas. Avance del Proyecto Integrador – Web 1
 (Bases de Datos, Unidad Central del Valle del Cauca, docente: Jesús David Mejía Vergara).
 
