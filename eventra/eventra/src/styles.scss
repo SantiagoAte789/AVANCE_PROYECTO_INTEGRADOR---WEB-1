@@ -1,12 +1,23 @@
 :root {
   --ev-ink: #1e1b3a; --ev-primary: #4338ca; --ev-accent: #f59e0b; --ev-bg: #f6f5fb; --ev-card: #ffffff;
   --bs-primary: #4338ca; --bs-primary-rgb: 67, 56, 202;
+  --ev-text: #1e1b3a; --ev-muted: #6b6890; --ev-border: #e4e1f2; --ev-nav: #1e1b3a; --ev-soft: #eeecfb;
 }
-body { font-family: 'DM Sans', sans-serif; background: var(--ev-bg); color: var(--ev-ink); }
+[data-bs-theme="dark"] {
+  --ev-bg: #12111f; --ev-card: #1c1a30; --ev-text: #e8e6fa; --ev-muted: #a09dc4; --ev-border: #34305a;
+  --ev-nav: #0c0b17; --ev-soft: #2a2748; --ev-primary: #8b83ff;
+  --bs-body-bg: #12111f; --bs-body-color: #e8e6fa; --bs-border-color: #34305a;
+}
+body { font-family: 'DM Sans', sans-serif; background: var(--ev-bg); color: var(--ev-text); transition: background .2s, color .2s; }
 h1, h2, h3, h4, .ev-brand { font-family: 'Sora', sans-serif; }
 .btn-primary { --bs-btn-bg: #4338ca; --bs-btn-border-color: #4338ca; --bs-btn-hover-bg: #372fa8; --bs-btn-hover-border-color: #372fa8; }
 .btn-accent { background: var(--ev-accent); border-color: var(--ev-accent); color: var(--ev-ink); font-weight: 700; }
 .ev-page { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 3rem; }
-.ev-card { background: var(--ev-card); border: 1px solid #e4e1f2; border-radius: 12px; padding: 1.25rem; }
+.ev-card { background: var(--ev-card); border: 1px solid var(--ev-border); border-radius: 12px; padding: 1.25rem; }
 .ev-title { font-size: 1.75rem; margin-bottom: .25rem; }
-.ev-sub { color: #6b6890; margin-bottom: 1.5rem; }
+.ev-sub { color: var(--ev-muted); margin-bottom: 1.5rem; }
+[data-bs-theme="dark"] .btn-primary { --bs-btn-bg: #6c63f0; --bs-btn-border-color: #6c63f0; --bs-btn-hover-bg: #8179f5; --bs-btn-hover-border-color: #8179f5; }
+[data-bs-theme="dark"] .text-secondary { color: var(--ev-muted) !important; }
+[data-bs-theme="dark"] .text-bg-light { background-color: var(--ev-soft) !important; color: var(--ev-text) !important; }
+.theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 31px; padding: 0; }
+.ev-card .table { --bs-table-bg: transparent; }
