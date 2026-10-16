@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand-lg ev-nav">
+  <div class="container">
+    <a class="navbar-brand ev-brand" routerLink="/cliente/eventos">Eventra</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-label="Abrir menú">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav me-auto">
+        @for (g of grupos; track g.nombre) {
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">{{ g.nombre }}</a>
+            <ul class="dropdown-menu">
+              @for (e of g.enlaces; track e.ruta) {
+                <li><a class="dropdown-item" [routerLink]="e.ruta" routerLinkActive="active">{{ e.texto }}</a></li>
+              }
+            </ul>
+          </li>
+        }
+      </ul>
+      <a class="btn btn-sm btn-outline-light me-2" routerLink="/auth/login">Iniciar sesión</a>
+      <a class="btn btn-sm btn-accent" routerLink="/auth/registro">Registrarse</a>
+    </div>
+  </div>
+</nav>

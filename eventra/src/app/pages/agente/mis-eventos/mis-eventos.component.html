@@ -1,0 +1,15 @@
+<div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+  <div><h1 class="ev-title">Eventos registrados</h1><p class="ev-sub">Todos los eventos que has publicado.</p></div>
+  <a class="btn btn-accent" routerLink="/agente/registrar-evento">Registrar evento</a>
+</div>
+<div class="ev-card table-responsive">
+  <table class="table align-middle mb-0">
+    <thead><tr><th></th><th>Evento</th><th>Categoría</th><th>Fecha</th><th>Lugar</th><th>Precio</th><th>Cupos</th></tr></thead>
+    <tbody>
+      @for (e of eventos; track e.id) {
+        <tr><td class="fs-4">{{ e.icono }}</td><td>{{ e.nombre }}</td><td>{{ e.categoria }}</td><td>{{ e.fecha }}</td>
+          <td>{{ e.lugar }}</td><td>{{ e.precio | currency:'COP':'symbol-narrow':'1.0-0' }}</td><td>{{ e.cupos }}</td></tr>
+      }
+    </tbody>
+  </table>
+</div>

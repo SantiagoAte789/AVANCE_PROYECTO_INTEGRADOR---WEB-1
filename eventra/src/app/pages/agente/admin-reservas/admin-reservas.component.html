@@ -1,0 +1,17 @@
+<h1 class="ev-title">Administrar reservas</h1>
+<p class="ev-sub">Revisa las reservas solicitadas y actualiza su estado.</p>
+<div class="ev-card table-responsive">
+  <table class="table align-middle mb-0">
+    <thead><tr><th>Cliente</th><th>Evento</th><th>Entradas</th><th>Total</th><th>Estado</th><th>Cambiar estado</th></tr></thead>
+    <tbody>
+      @for (r of reservas; track r.id) {
+        <tr><td>{{ r.cliente }}</td><td>{{ r.evento }}</td><td>{{ r.tickets }}</td>
+          <td>{{ r.total | currency:'COP':'symbol-narrow':'1.0-0' }}</td>
+          <td><span [class]="'badge ' + badge(r.estado)">{{ r.estado }}</span></td>
+          <td><div class="input-group input-group-sm acciones">
+            <select class="form-select">@for (s of estados; track s) { <option [selected]="s === r.estado">{{ s }}</option> }</select>
+            <button class="btn btn-primary" type="button">Actualizar</button></div></td></tr>
+      }
+    </tbody>
+  </table>
+</div>

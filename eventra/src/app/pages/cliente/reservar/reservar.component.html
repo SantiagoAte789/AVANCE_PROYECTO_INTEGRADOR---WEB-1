@@ -1,0 +1,25 @@
+<h1 class="ev-title">Reservar evento</h1>
+<p class="ev-sub">Confirma los datos de tu reserva.</p>
+@if (evento) {
+  <div class="row g-4">
+    <div class="col-12 col-md-7">
+      <div class="ev-card">
+        <h2 class="h5">{{ evento.icono }} {{ evento.nombre }}</h2>
+        <p class="text-secondary">{{ evento.descripcion }}</p>
+        <p class="mb-1">📅 {{ evento.fecha }}</p>
+        <p class="mb-0">📍 {{ evento.lugar }}</p>
+      </div>
+    </div>
+    <div class="col-12 col-md-5">
+      <div class="ev-card">
+        <label class="form-label">Cantidad de entradas</label>
+        <select class="form-select mb-3">@for (t of tickets; track t) { <option>{{ t }}</option> }</select>
+        <div class="d-flex justify-content-between mb-3"><span>Precio por entrada</span>
+          <strong>{{ evento.precio | currency:'COP':'symbol-narrow':'1.0-0' }}</strong></div>
+        <a class="btn btn-accent w-100" routerLink="/cliente/mis-reservas">Confirmar reserva</a>
+      </div>
+    </div>
+  </div>
+} @else {
+  <div class="ev-card">No encontramos este evento. <a routerLink="/cliente/eventos">Volver a los eventos</a></div>
+}

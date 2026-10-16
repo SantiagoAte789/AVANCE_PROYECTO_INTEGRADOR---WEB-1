@@ -1,0 +1,18 @@
+<h1 class="ev-title">Registrar evento</h1>
+<p class="ev-sub">Completa la información para publicar un nuevo evento.</p>
+<div class="ev-card">
+  <div class="row g-3">
+    <div class="col-12 col-md-8"><label class="form-label">Nombre del evento</label><input class="form-control"></div>
+    <div class="col-12 col-md-4"><label class="form-label">Categoría</label>
+      <select class="form-select">@for (c of categorias; track c) { <option>{{ c }}</option> }</select></div>
+    <div class="col-12 col-md-4"><label class="form-label">Fecha</label><input type="date" class="form-control"></div>
+    <div class="col-12 col-md-8"><label class="form-label">Lugar</label><input class="form-control"></div>
+    <div class="col-6"><label class="form-label">Precio (COP)</label><input type="number" class="form-control"></div>
+    <div class="col-6"><label class="form-label">Cupos</label><input type="number" class="form-control"></div>
+    <div class="col-12"><label class="form-label">Descripción</label><textarea rows="3" class="form-control"></textarea></div>
+  </div>
+  <div class="mt-4 d-flex gap-2">
+    <a class="btn btn-primary" routerLink="/agente/eventos">Guardar evento</a>
+    <a class="btn btn-outline-secondary" routerLink="/agente/eventos">Cancelar</a>
+  </div>
+</div>

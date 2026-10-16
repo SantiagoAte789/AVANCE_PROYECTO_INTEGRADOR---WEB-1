@@ -1,0 +1,21 @@
+<h1 class="ev-title">Eventos disponibles</h1>
+<p class="ev-sub">Encuentra tu próximo plan y reserva tus entradas.</p>
+<div class="row g-4">
+  @for (e of eventos; track e.id) {
+    <div class="col-12 col-md-6 col-lg-4">
+      <article class="ev-card h-100 evento">
+        <div class="evento-icono">{{ e.icono }}</div>
+        <span class="badge text-bg-light">{{ e.categoria }}</span>
+        <h2 class="h5 mt-2">{{ e.nombre }}</h2>
+        <p class="small text-secondary">{{ e.descripcion }}</p>
+        <p class="small mb-1">📅 {{ e.fecha }}</p>
+        <p class="small mb-1">📍 {{ e.lugar }}</p>
+        <p class="small">🎟️ {{ e.cupos }} cupos disponibles</p>
+        <div class="d-flex justify-content-between align-items-center mt-auto">
+          <strong>{{ e.precio | currency:'COP':'symbol-narrow':'1.0-0' }}</strong>
+          <a class="btn btn-primary btn-sm" [routerLink]="['/cliente/reservar', e.id]">Reservar</a>
+        </div>
+      </article>
+    </div>
+  }
+</div>

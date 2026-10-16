@@ -1,0 +1,29 @@
+<h1 class="ev-title">Reportes del sistema</h1>
+<p class="ev-sub">Resumen general de la actividad en Eventra.</p>
+<div class="row g-3 mb-4">
+  <div class="col-6 col-lg-3"><div class="ev-card"><div class="kpi">{{ r.totalEventos }}</div>Eventos</div></div>
+  <div class="col-6 col-lg-3"><div class="ev-card"><div class="kpi">{{ r.totalReservas }}</div>Reservas</div></div>
+  <div class="col-6 col-lg-3"><div class="ev-card"><div class="kpi">{{ r.usuarios }}</div>Usuarios</div></div>
+  <div class="col-6 col-lg-3"><div class="ev-card"><div class="kpi">{{ r.ingresos | currency:'COP':'symbol-narrow':'1.0-0' }}</div>Ingresos confirmados</div></div>
+</div>
+<div class="row g-4">
+  <div class="col-12 col-lg-7">
+    <div class="ev-card"><h2 class="h5">Reservas por mes</h2>
+      <div class="barras">
+        @for (m of r.reservasPorMes; track m.etiqueta) {
+          <div class="barra-col"><span class="small">{{ m.valor }}</span>
+            <div class="barra" [style.height.%]="m.valor / maxMes * 100"></div><span class="small">{{ m.etiqueta }}</span></div>
+        }
+      </div></div>
+  </div>
+  <div class="col-12 col-lg-5">
+    <div class="ev-card"><h2 class="h5">Reservas por categoría</h2>
+      <table class="table mb-0 align-middle"><tbody>
+        @for (c of r.porCategoria; track c.etiqueta) {
+          <tr><td>{{ c.etiqueta }}</td><td style="width:45%">
+            <div class="progress"><div class="progress-bar" [style.width.%]="c.valor / totalCat * 100"></div></div></td>
+            <td class="text-end">{{ c.valor }}</td></tr>
+        }
+      </tbody></table></div>
+  </div>
+</div>
